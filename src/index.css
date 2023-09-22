@@ -1,0 +1,149 @@
+/* 
+Font Imports: 
+Josefin Sans - Weights: 400, 700
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  background-image: url("./assets/bg-mobile-light.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: hsl(0, 0%, 98%);
+}
+
+/* Header styles */
+header {
+  margin-top: 2rem;
+  max-width: 100%;
+  display: flex;
+  gap: 5rem;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+header h1 {
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 98%);
+}
+
+/* Task input form styles */
+.input-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.input-container input {
+  max-width: 100%;
+  width: 83%;
+  padding: 0.8rem 0.8rem;
+  border-radius: 5px;
+  border-style: none;
+  outline: none;
+}
+
+/* List styles */
+
+.list-container {
+  margin: 1.3rem auto;
+  max-width: 90%;
+  color: hsl(235, 19%, 35%);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.list-container ul {
+  list-style: none;
+}
+
+.list-container li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: solid 1px hsl(233, 11%, 84%);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: white;
+  padding: 1rem 1.5rem;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.list-container li:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.list-container button {
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: hsl(235, 19%, 35%);
+  margin-left: auto;
+  border-style: none;
+  background: none;
+}
+
+.list-container input[type="checkbox"] {
+  appearance: none;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  border: solid 1px;
+  border-radius: 50%;
+}
+
+.list-container input[type="checkbox"]:checked {
+  background-image: url("./assets/icon-check.svg"),
+    linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.stats-container span {
+  font-size: 0.8rem;
+}
+
+.stats-container .clear-button {
+  cursor: pointer;
+}
+
+/* Filter bar styles */
+
+.filter-container {
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 0.8rem 0rem;
+  border-radius: 10px;
+  background-color: white;
+  color: hsl(235, 19%, 35%);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.filter-container span {
+  cursor: pointer;
+}
+
+.active {
+  color: hsl(220, 98%, 61%);
+}
