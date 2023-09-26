@@ -21,7 +21,7 @@ export default function Header() {
       <h1>TODO</h1>
       <img
         className="mode-icon"
-        src={isDark ? "src/assets/icon-sun.svg" : "src/assets/icon-moon.svg"}
+        src={isDark ? "src/assets/sun.svg" : "src/assets/moon.svg"}
         alt={isDark ? "The sun" : "The moon"}
         onClick={() => setIsDark(!isDark)}
       />

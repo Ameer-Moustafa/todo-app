@@ -44,7 +44,7 @@ export default function List({ tasks, setTasks, filter }) {
                 {item.text}
               </span>
               <button onClick={() => handleDelete(item.id)}>
-                <img src="src/assets/icon-cross.svg" />
+                <img src="src/assets/cross.svg" />
               </button>
             </li>
           ))
