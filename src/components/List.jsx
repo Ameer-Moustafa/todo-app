@@ -19,10 +19,10 @@ export default function List({ tasks, setTasks, filter }) {
   if (filter === "all") filteredList = tasks;
 
   if (filter === "active")
-    filteredList = tasks.filter((task) => task.completed === false);
+    filteredList = tasks.filter((task) => !task.completed);
 
   if (filter === "completed")
-    filteredList = tasks.filter((task) => task.completed === true);
+    filteredList = tasks.filter((task) => task.completed);
 
   return (
     <div className="list-container">
@@ -33,7 +33,7 @@ export default function List({ tasks, setTasks, filter }) {
           </li>
         ) : (
           filteredList.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} draggable>
               <input
                 type="checkbox"
                 value={item.completed}

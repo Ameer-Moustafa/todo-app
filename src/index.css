@@ -12,27 +12,57 @@ Josefin Sans - Weights: 400, 700
 }
 
 body {
-  width: 100%;
-  background-image: url("./assets/bg-mobile-light.jpg");
+  background-image: var(--background-image);
   background-repeat: no-repeat;
   background-size: 100%;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--background-color);
+}
+
+/* Color variables */
+
+:root {
+  --background-image: url("./assets/bg-mobile-light.jpg");
+  --background-color: hsl(0, 0%, 98%);
+  --header-text-color: white;
+  --component-background-color: white;
+  --checklist-color: hsl(236, 33%, 92%);
+  --list-item-border: hsl(233, 11%, 84%);
+  --filter-color: hsl(236, 9%, 61%);
+  --completed-color: hsl(233, 11%, 84%);
+  --main-font-color: hsl(235, 19%, 35%);
+  --font-hover: hsl(235, 19%, 35%);
+}
+
+[data-theme="dark"] {
+  --background-image: url("./assets/bg-mobile-dark.jpg");
+  --background-color: hsl(235, 21%, 11%);
+  --component-background-color: hsl(235, 24%, 19%);
+  --checklist-color: hsl(237, 14%, 26%);
+  --list-item-border: hsl(233, 14%, 35%);
+  --main-font-color: hsl(234, 39%, 85%);
+  --font-hover: hsl(236, 33%, 92%);
+  --completed-color: hsl(234, 11%, 52%);
 }
 
 /* Header styles */
 header {
-  margin-top: 2rem;
+  margin-top: 2.7rem;
   max-width: 100%;
   display: flex;
-  gap: 5rem;
-  align-items: baseline;
+  align-items: start;
   justify-content: space-around;
+  gap: 5rem;
 }
 
 header h1 {
+  color: var(--header-text-color);
   letter-spacing: 0.5rem;
   font-weight: 700;
-  color: hsl(0, 0%, 98%);
+}
+
+.mode-icon {
+  cursor: pointer;
+  width: 7%;
 }
 
 /* Task input form styles */
@@ -45,20 +75,23 @@ header h1 {
 .input-container input {
   max-width: 100%;
   width: 83%;
-  padding: 0.8rem 0.8rem;
+  padding: 1.1rem 0.8rem;
   border-radius: 5px;
   border-style: none;
   outline: none;
+  background-color: var(--component-background-color);
+  color: var(--main-font-color);
+  caret-color: hsl(220, 98%, 61%);
 }
 
 /* List styles */
 
 .list-container {
-  margin: 1.3rem auto;
   max-width: 90%;
-  color: hsl(235, 19%, 35%);
+  margin: 1.3rem auto;
   border-radius: 10px;
-  background-color: white;
+  color: var(--main-font-color);
+  background-color: var(--component-background-color);
 }
 
 .list-container ul {
@@ -66,19 +99,24 @@ header h1 {
 }
 
 .list-container li {
+  padding: 1rem 1.5rem;
+  background-color: var(--component-background-color);
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 1rem;
-  border-bottom: solid 1px hsl(233, 11%, 84%);
+  border-bottom: solid 1px var(--list-item-border);
   font-size: 0.9rem;
   font-weight: 500;
-  background-color: white;
-  padding: 1rem 1.5rem;
+}
+
+.list-container li span {
+  cursor: pointer;
 }
 
 .checked {
   text-decoration: line-through;
+  color: var(--completed-color);
 }
 
 .list-container li:first-of-type {
@@ -87,20 +125,31 @@ header h1 {
 }
 
 .list-container button {
-  cursor: pointer;
-  font-size: 0.8rem;
-  color: hsl(235, 19%, 35%);
+  width: 5%;
+  min-width: 5%;
   margin-left: auto;
+  color: var(--main-font-color);
+  font-size: 0.5rem;
+  cursor: pointer;
   border-style: none;
   background: none;
 }
 
+.list-container img {
+  width: 100%;
+  height: auto;
+}
+
 .list-container input[type="checkbox"] {
+  min-width: 1.3em;
+  min-height: 1.3em;
   appearance: none;
-  min-width: 1.5em;
-  min-height: 1.5em;
-  border: solid 1px;
+  border: solid 0.5px var(--checklist-color);
   border-radius: 50%;
+}
+
+.list-container input[type="checkbox"]:hover {
+  border-color: hsl(280, 87%, 65%);
 }
 
 .list-container input[type="checkbox"]:checked {
@@ -108,12 +157,14 @@ header h1 {
     linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   background-repeat: no-repeat;
   background-position: center;
+  border: none;
 }
 
 .stats-container {
+  padding: 1rem;
+  color: var(--filter-color);
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -126,24 +177,143 @@ header h1 {
   cursor: pointer;
 }
 
+.stats-container .clear-button:hover {
+  color: var(--font-hover);
+}
+
 /* Filter bar styles */
 
 .filter-container {
   margin: 0 auto;
   max-width: 90%;
-  padding: 0.8rem 0rem;
-  border-radius: 10px;
-  background-color: white;
-  color: hsl(235, 19%, 35%);
+  padding: 1rem 0rem;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--component-background-color);
+  color: var(--filter-color);
 }
 
 .filter-container span {
   cursor: pointer;
+  font-weight: 700;
+}
+
+.filter-container span:hover {
+  color: var(--font-hover);
 }
 
 .active {
   color: hsl(220, 98%, 61%);
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+  :root {
+    --background-image: url("./assets/bg-desktop-light.jpg");
+  }
+
+  [data-theme="dark"] {
+    --background-image: url("./assets/bg-desktop-dark.jpg");
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  .mode-icon {
+    width: 4%;
+  }
+
+  .input-container {
+    margin-top: 3rem;
+  }
+
+  .input-container input {
+    max-width: 65%;
+    padding: 1rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .list-container {
+    max-width: 69%;
+  }
+
+  .list-container li {
+    font-size: 1.1rem;
+  }
+
+  .list-container input[type="checkbox"] {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+  }
+
+  .filter-container {
+    max-width: 70%;
+  }
+
+  .filter-container span {
+    font-size: 1.2rem;
+  }
+
+  .stats-container span {
+    font-size: 1rem;
+  }
+}
+
+/* Laptop */
+
+@media screen and (min-width: 1440px) {
+  header {
+    justify-content: center;
+    gap: 25%;
+    margin-top: 4rem;
+  }
+
+  header h1 {
+    font-size: 3.2rem;
+  }
+
+  .mode-icon {
+    width: 3%;
+  }
+
+  .input-container input {
+    max-width: 38%;
+    padding: 1.2rem;
+  }
+
+  .list-container {
+    max-width: 41%;
+  }
+
+  .filter-container {
+    max-width: 41%;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1920px) {
+  header {
+    gap: 20%;
+  }
+
+  .mode-icon {
+    width: 2%;
+  }
+
+  .input-container input {
+    max-width: 30%;
+  }
+
+  .list-container {
+    max-width: 32%;
+  }
+
+  .filter-container {
+    max-width: 32%;
+  }
 }
