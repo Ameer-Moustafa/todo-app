@@ -154,7 +154,7 @@ header h1 {
 }
 
 .list-container input[type="checkbox"]:checked {
-  background-image: url("/icon-check.svg"),
+  background-image: url("/check.svg"),
     linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   background-repeat: no-repeat;
   background-position: center;
