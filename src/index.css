@@ -25,7 +25,7 @@ body {
   --background-color: hsl(0, 0%, 98%);
   --header-text-color: white;
   --component-background-color: white;
-  --checklist-color: hsl(236, 33%, 92%);
+  --checklist-color: hsl(236, 9%, 61%);
   --list-item-border: hsl(233, 11%, 84%);
   --filter-color: hsl(236, 9%, 61%);
   --completed-color: hsl(233, 11%, 84%);
@@ -142,8 +142,8 @@ header h1 {
 }
 
 .list-container input[type="checkbox"] {
-  min-width: 1.3em;
-  min-height: 1.3em;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
   appearance: none;
   border: solid 0.5px var(--checklist-color);
   border-radius: 50%;
@@ -200,6 +200,7 @@ header h1 {
 .filter-container span {
   cursor: pointer;
   font-weight: 700;
+  user-select: none;
 }
 
 .filter-container span:hover {
