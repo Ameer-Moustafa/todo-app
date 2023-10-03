@@ -1,3 +1,5 @@
+// Filter component, state variable will be set depending on which button is selected
+
 export default function Filters({ onFilter, filter }) {
   return (
     <div className="filter-container">

@@ -1,4 +1,6 @@
 export default function List({ tasks, setTasks, filter }) {
+
+  // Handling whether a task is completed or not
   function handleCompleted(id) {
     setTasks((tasks) =>
       tasks.map((task) =>
@@ -7,13 +9,17 @@ export default function List({ tasks, setTasks, filter }) {
     );
   }
 
+  // Handling clearing completed tasks
   function handleClearCompleted() {
     setTasks((tasks) => tasks.filter((task) => !task.completed));
   }
 
+  // Handling deleting of a task
   function handleDelete(id) {
     setTasks((tasks) => tasks.filter((task) => task.id != id));
   }
+
+  // Logic for displaying different filtered arrays depending on the selected filter
 
   let filteredList;
   if (filter === "all") filteredList = tasks;
@@ -33,7 +39,7 @@ export default function List({ tasks, setTasks, filter }) {
           </li>
         ) : (
           filteredList.map((item) => (
-            <li key={item.id} draggable>
+            <li key={item.id}>
               <input
                 type="checkbox"
                 value={item.completed}
